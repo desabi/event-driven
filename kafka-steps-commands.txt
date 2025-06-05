@@ -1,0 +1,23 @@
+
+En PowerShell
+
+------------------------------
+ Iniciar Zookeeper
+-> cd C:\kafka_2.12-3.9.0\
+-> .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+------------------------------
+ Iniciar Kakfa
+ En otra terminal
+-> cd C:\kafka_2.12-3.9.0\
+-> .\bin\windows\kafka-server-start.bat .\config\server.properties
+
+------------------------------
+ Ver topicos 
+ En otra terminal
+-> .\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+
+------------------------------
+ Ver mensajes de un topic específico
+ En otra terminal
+-> .\bin\windows\kafka-console-consumer.bat --topic myKafkaTest --bootstrap-server localhost:9092

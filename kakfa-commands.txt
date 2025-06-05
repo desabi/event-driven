@@ -14,9 +14,11 @@
 
 ▶️ Listar todos los topics que existen dentro del broker
 .\bin\windows\kafka-topics.bat --list --bootstrap-server {host}:9092
+.\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
 
 ▶️ Inicia una consola para ver mensajes de un topic específico
 .\bin\windows\kafka-console-consumer.bat --topic {nombreTopic} --bootstrap-server {host}:9092
+.\bin\windows\kafka-console-consumer.bat --topic myKafkaTest --bootstrap-server localhost:9092
 
 ▶️ Inicia una consola para enviar mensajes a un topic específico
 .\bin\windows\kafka-console-producer.bat --broker-list {host}:9092 --topic {topic-name}
