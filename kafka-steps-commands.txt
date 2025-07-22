@@ -12,6 +12,15 @@ En PowerShell
 -> cd C:\kafka_2.12-3.9.0\
 -> .\bin\windows\kafka-server-start.bat .\config\server.properties
 
+ En caso de que marque ERROR:
+ Abrir archivo server.properties, y editar la siguiente linea
+-> log.dirs=C:\kafka_2.12-3.9.0\kafka-logs-a
+ Cambiar a otra carpeta, por ejemplo: kafka-logs-b, y borrar la anterior
+ 
+ Creat topico 
+ En una terminal nueva
+-> .\bin\windows\kafka-topics.bat --create --topic topic-camel-ega --bootstrap-server localhost:9092
+
 ------------------------------
  Ver topicos 
  En otra terminal

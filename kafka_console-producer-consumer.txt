@@ -1,0 +1,11 @@
+
+ => Kafka console Consumer y console Producer se encuentran en:
+	-> C:\kafka_2.12-3.9.0\bin
+
+ => En una terminal nueva:
+	-> cd C:\kafka_2.12-3.9.0\bin
+	-> .\kafka-console-producer.sh --broker-list localhost:9092 --topic stock-live
+	-> Se abre una nueva consola, escribir los mensaje ahí
+
+	-> Ver mensajes en consumer:
+	-> .\kafka-console-consumer.sh --topic stock-audit --bootstrap-server localhost:9092

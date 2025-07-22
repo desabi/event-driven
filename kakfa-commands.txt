@@ -8,6 +8,7 @@
 
 ▶️ Crea un nuevo topic en el servidor de kafka
 .\bin\windows\kafka-topics.bat --create --topic {topic-name} --bootstrap-server {host}:9092
+.\bin\windows\kafka-topics.bat --create --topic tpc-cml-ega --bootstrap-server localhost:9092
 
 ▶️ Decribir los detalles de un topic
 .\bin\windows\kafka-topics.bat --describe --topic {topic-name} --bootstrap-server {host}:9092
