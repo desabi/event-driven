@@ -18,15 +18,38 @@
 
 	<properties>
 		<java.version>21</java.version>
+
+		<!-- Maven Compiler settings -->
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+
+		<!-- Ensures both source and target compatibility -->
+		<!-- You could technically just use this property and omit source + target, but many projects
+		     keep all three for clarity and backward compatibility with older Maven plugins.
+		     but many projects keep all three for clarity and backward compatibility with older
+		     Maven plugins.-->
+		<maven.compiler.release>${java.version}</maven.compiler.release>
+
+		<maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
+
+		<camel.springboot.version>4.14.0</camel.springboot.version>
+
+		<!-- Encoding - CRITICAL for cross-platform builds -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.camel.springboot</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
-			<version>4.14.0</version>
+			<version>${camel.springboot.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-kafka-starter</artifactId>
+			<version>${camel.springboot.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -36,9 +59,28 @@
 
 	<build>
 		<plugins>
+			<!-- Compiler plugin: Java version handling -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<!-- <release> is the preferred option (since Java 9). It ensures compilation against
+					     the correct standard library of Java 21. -->
+					<release>${java.version}</release>
+					<!-- Optional: keep source/target for clarity -->
+					<!-- <source>${java.version}</source> -->
+					<!-- <target>${java.version}</target> -->
+					<!-- <source> and <target> are optional if <release> is defined — but many teams keep
+					     them for readability and IDE compatibility. -->
+				</configuration>
+			</plugin>
+
+			<!-- Spring Boot plugin: packaging and running -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!-- Uses the same version defined in the parent section -->
 			</plugin>
 		</plugins>
 	</build>
