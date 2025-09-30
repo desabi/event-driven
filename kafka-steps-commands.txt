@@ -19,6 +19,7 @@ En PowerShell
  
  Creat topico 
  En una terminal nueva
+-> cd C:\kafka_2.12-3.9.0\
 -> .\bin\windows\kafka-topics.bat --create --topic topic-camel-ega --bootstrap-server localhost:9092
 
 ------------------------------
@@ -29,4 +30,8 @@ En PowerShell
 ------------------------------
  Ver mensajes de un topic específico
  En otra terminal
+ 
+-> cd C:\kafka_2.12-3.9.0\
 -> .\bin\windows\kafka-console-consumer.bat --topic myKafkaTest --bootstrap-server localhost:9092
+
+----------------------------------
